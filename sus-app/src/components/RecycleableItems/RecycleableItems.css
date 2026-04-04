@@ -1,0 +1,66 @@
+.items-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.items-container h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.items {
+  /* overflow: hidden; */
+  width: 96%;
+}
+
+.items-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 0.75rem;
+}
+
+.item-card {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* spreads content nicely */
+
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem;
+
+  width: 160px; /* slightly bigger = better look */
+  min-height: 220px; /* ensures equal height */
+
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  flex-grow: 1;
+}
+
+.item-card:hover {
+  transform: translateY(-5px);
+  transition: 0.3s;
+}
+
+.item-card h3 {
+  font-size: 1rem;
+  margin: 0.5rem 0;
+  font-weight: 600;
+  min-height: 40px;
+}
+
+.item-card p {
+  font-size: 0.85rem;
+  color: #555;
+  margin: 0;
+  min-height: 60px;
+}
+
+.item-card img {
+  width: 100%;
+  height: 100px; /* fixed height */
+  object-fit: cover; /* prevents distortion */
+  border-radius: 6px;
+}
