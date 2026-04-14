@@ -74,7 +74,7 @@ exports.register =  async (req, res) => {
 
 exports.getAllUsers = async (req, res) => {
     try {
-        const users = await User.find({}); // Exclude password field
+        const users = await User.find({});
         res.status(200).send({ success: true, users });
     } catch (error) {
         console.error('Error fetching users:', error);
