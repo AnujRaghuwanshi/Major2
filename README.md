@@ -40,7 +40,7 @@ Sustainability-connect/
 
 ### 1. Clone the repository
 
-git clone https://github.com/Rohit-24gb/Sustainability-connect.git
+git clone [https://github.com/AnujRaghuwanshi/Sustainability-connect.git](https://github.com/AnujRaghuwanshi/Sustainability-connect.git)
 cd Sustainability-connect
 
 ### 2. Install dependencies
