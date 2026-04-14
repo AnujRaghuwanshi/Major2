@@ -183,7 +183,7 @@ async function request(path, options = {}) {
   } catch (err) {
     // If it's a network error, provide a helpful message
     if (err instanceof TypeError) {
-      throw new Error('Network error: Unable to reach the server. Make sure the backend is running on port 4000.');
+      throw new Error('Network error: Unable to reach the server.');
     }
     throw err;
   }

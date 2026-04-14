@@ -27,21 +27,40 @@ export default function LoginPage() {
   };
 
   return (
-    <main className="container login-screen">
-      <section className="login-box">
-        <h1>Admin Portal Login</h1>
-        <p>Sign in to manage products, users, centers, pickups, and order tracking.</p>
-        <form onSubmit={handleSubmit} className="login-form">
-          <label>
-            Email
-            <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" required />
-          </label>
-          <label>
-            Password
-            <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" required />
-          </label>
-          {error && <p className="error-message">{error}</p>} <br />
-          <button type="submit" className="button primary" disabled={loading}>
+    <main className="login-screen">
+      <section className="auth-card">
+        <div className="auth-copy">
+          <h1>Welcome to Admin Portal</h1>
+          <p>Manage sustainability ecosystem: products, users, providers, pickups & orders. Building greener future together.</p>
+          <div className="auth-note">
+            <strong>Sustainability Connect Admin</strong><br/>
+            Secure access to eco-management dashboard
+          </div>
+        </div>
+        <form onSubmit={handleSubmit} className="auth-form">
+          <h2>Sign In</h2>
+          <div className="field">
+            <span>Email</span>
+            <input 
+              value={email} 
+              onChange={(e) => setEmail(e.target.value)} 
+              type="email" 
+              placeholder="admin@example.com"
+              required 
+            />
+          </div>
+          <div className="field">
+            <span>Password</span>
+            <input 
+              value={password} 
+              onChange={(e) => setPassword(e.target.value)} 
+              type="password" 
+              placeholder="••••••••"
+              required 
+            />
+          </div>
+          {error && <p className="form-message error">{error}</p>}
+          <button type="submit" className="primary-button button-block" disabled={loading}>
             {loading ? 'Signing in…' : 'Sign In'}
           </button>
         </form>

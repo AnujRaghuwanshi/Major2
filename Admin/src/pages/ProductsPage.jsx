@@ -96,125 +96,123 @@ export default function ProductsPage() {
   };
 
   return (
-    <div className="products-layout">
-
-        <section className="form-card form-card--wide">
-        <div className="section-header">
-          <div>
-            <h3>Add a product</h3>
-            <p>Use a rich product entry form to add an item with price, category, and images.</p>
+<div className="section-grid">
+        <section className="form-card">
+          <div className="panel-header">
+            <div>
+              <h3>Add New Product</h3>
+              <p className="eyebrow">Eco-friendly item management</p>
+            </div>
           </div>
-        </div>
-
-        <form onSubmit={addProduct} className="product-form">
-          <div className="form-grid">
-            <label>
-              Name
-              <input
-                value={newProduct.name}
-                onChange={(e) => setNewProduct({ ...newProduct, name: e.target.value })}
-                type="text"
-                placeholder="EcoBamboo Toothbrush"
+          <form onSubmit={addProduct} className="product-form">
+            <div className="form-grid">
+              <div className="field">
+                <span>Name</span>
+                <input
+                  value={newProduct.name}
+                  onChange={(e) => setNewProduct({ ...newProduct, name: e.target.value })}
+                  type="text"
+                  placeholder="EcoBamboo Toothbrush"
+                  required
+                />
+              </div>
+              <div className="field">
+                <span>Category ID</span>
+                <input
+                  value={newProduct.categoryID}
+                  onChange={(e) => setNewProduct({ ...newProduct, categoryID: e.target.value })}
+                  type="number"
+                  placeholder="1"
+                  required
+                />
+              </div>
+              <div className="field">
+                <span>Price (₹)</span>
+                <input
+                  value={newProduct.price}
+                  onChange={(e) => setNewProduct({ ...newProduct, price: e.target.value })}
+                  type="number"
+                  step="0.01"
+                  placeholder="25"
+                  required
+                />
+              </div>
+              <div className="field">
+                <span>Image URLs (comma sep.)</span>
+                <input
+                  value={newProduct.image_url}
+                  onChange={(e) => setNewProduct({ ...newProduct, image_url: e.target.value })}
+                  type="text"
+                  placeholder="https://example.com/img1.jpg, https://..."
+                />
+              </div>
+            </div>
+            <div className="field full-width-field">
+              <span>Description</span>
+              <textarea
+                value={newProduct.description}
+                onChange={(e) => setNewProduct({ ...newProduct, description: e.target.value })}
+                rows="4"
+                placeholder="Sustainable product details..."
                 required
               />
-            </label>
-            <label>
-              Category ID
-              <input
-                value={newProduct.categoryID}
-                onChange={(e) => setNewProduct({ ...newProduct, categoryID: e.target.value })}
-                type="number"
-                placeholder="1"
-                required
-              />
-            </label>
-            <label>
-              Price (Rs)
-              <input
-                value={newProduct.price}
-                onChange={(e) => setNewProduct({ ...newProduct, price: e.target.value })}
-                type="number"
-                step="0.01"
-                placeholder="25"
-                required
-              />
-            </label>
-            <label>
-              Image URLs comma separated
-              <input
-                value={newProduct.image_url}
-                onChange={(e) => setNewProduct({ ...newProduct, image_url: e.target.value })}
-                type="text"
-                placeholder="https://example.com/image1.jpg, https://example.com/image2.jpg"
-              />
-            </label>
+            </div>
+            <div className="form-actions">
+              <button className="primary-button button-block" type="submit" disabled={loading}>
+                Add Product
+              </button>
+            </div>
+            {error && <p className="form-message error">{error}</p>}
+          </form>
+        </section> <br />
+
+        <section className="panel">
+          <div className="panel-header">
+            <h2>Products ({products.length})</h2>
+            <div className="filter-group">
+              <button className="chip">All</button>
+              <button className="chip active">Active</button>
+            </div>
           </div>
 
-          <label className="full-width-field">
-            Description
-            <textarea
-              value={newProduct.description}
-              onChange={(e) => setNewProduct({ ...newProduct, description: e.target.value })}
-              rows="4"
-              placeholder="Enter a short product description"
-              required
-            />
-          </label>
-
-          <div className="form-actions">
-            <button className="button primary button-block" type="submit">
-              Add Product
-            </button>
-          </div>
-
-          {error && <p className="error-message">{error}</p>}
-        </form>
-      </section>
-      <br></br>
-
-      <section className="table-card">
-        <div className="section-header">
-          <div>
-            <h2>Product Management</h2>
-          </div>
-          <span className="badge">{products.length} products</span>
-        </div>
-
-        {loading ? (
-          <p>Loading products…</p>
-        ) : (
-          <div className="table-responsive">
-            <table>
-              <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>Description</th>
-                  <th>Category ID</th>
-                  <th>Price</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                {products.map((product, index) => (
-                  <tr key={product?.id || `product-${index}`}>
-                    <td>{product.name}</td>
-                    <td>{product.description}</td>
-                    <td>{product.categoryID}</td>
-                    <td>Rs {product.price}</td>
-                    <td>
-                      <button className="button danger" onClick={() => removeProduct(product.id)}>
-                        Remove
-                      </button>
-                    </td>
+          {loading ? (
+            <p className="eyebrow">Loading products…</p>
+          ) : products.length === 0 ? (
+            <p>No products found.</p>
+          ) : (
+            <div className="table-responsive">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Category</th>
+                    <th>Description</th>
+                    <th>Action</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        )}
-      </section>
-
-
-    </div>
+                </thead>
+                <tbody>
+                  {products.map((product) => (
+                    <tr key={product.id}>
+                      <td>{product.name}</td>
+                      <td>₹{product.price}</td>
+                      <td>{product.categoryID}</td>
+                      <td>{product.description?.substring(0, 60)}...</td>
+                      <td>
+                        <button 
+                          className="table-action" 
+                          onClick={() => removeProduct(product.id)}
+                        >
+                          Delete
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
+        </section>
+      </div>
   );
 }
