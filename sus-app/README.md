@@ -57,7 +57,7 @@ sus-app/
 ### 1. Clone the repository
 
 ```bash id="6zqz3f"
-git clone [https://github.com/AnujRaghuwanshi/Sustainability-connect.git](https://github.com/AnujRaghuwanshi/Sustainability-connect.git)
+git clone (https://github.com/AnujRaghuwanshi/Sustainability-connect.git)
 cd sus-app
 ```
 
