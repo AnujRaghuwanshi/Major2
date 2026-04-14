@@ -13,6 +13,7 @@ export default function AdminLayout() {
     { label: 'Active Users', value: '2', hint: 'Registered' },
     { label: 'Pickups', value: '5', hint: 'Scheduled' },
     { label: 'Orders', value: '2', hint: 'Placed' },
+    { label: ' Recycling Centers', value: '3', hint: 'Total centers' },
   ];
 
   return (

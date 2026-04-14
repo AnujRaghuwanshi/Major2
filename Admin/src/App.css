@@ -261,6 +261,22 @@ button, input, select {
   backdrop-filter: blur(10px);
 }
 
+.form-card label {
+  display: flex;
+  flex-direction: column; /* stack label + input */
+  gap: 6px;               /* space between text & input */
+  margin-bottom: 16px;   /* space between fields */
+}
+
+.form-card input,
+.form-card select {
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+
+
 .product-form {
   display: grid;
   gap: 22px;

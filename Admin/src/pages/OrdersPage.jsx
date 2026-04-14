@@ -92,6 +92,7 @@ export default function OrdersPage() {
     <div>
       <h2>Order Tracking</h2>
       {error && <p className="error-message">{error}</p>}
+      
       <div className="form-card" style={{ marginBottom: "24px" }}>
         <h3>Filter orders</h3>
         <label>
@@ -106,7 +107,7 @@ export default function OrdersPage() {
         <label>
           Status
           <label>
-            Status
+            
             <select
               value={statusFilter}
               onChange={(e) => setStatusFilter(e.target.value)}
@@ -127,6 +128,7 @@ export default function OrdersPage() {
           />
         </label>
       </div>
+
       {loading ? (
         <p>Loading orders…</p>
       ) : (
