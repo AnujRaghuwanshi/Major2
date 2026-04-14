@@ -17,8 +17,8 @@ const Cart = () => {
       const user = JSON.parse(localStorage.getItem('user'));
 
       if (!user) {
-        toast.error('Please log in to view cart items');
         setLoading(false);
+        toast.error('Please log in to view cart items');
         return;
       }
 
