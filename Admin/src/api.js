@@ -301,7 +301,6 @@ export async function fetchOrders(token, filters = {}) {
       userId ? o.customerId === Number(userId) : true
     );
   }
-
   // 🔥 Call correct API
   if (userId) {
     return request(`/orders/${userId}`, { token }); // ✅ correct
@@ -309,3 +308,13 @@ export async function fetchOrders(token, filters = {}) {
 
   return request('/orders', { token });
 }
+
+const api = {
+  fetchProducts,
+  fetchUsers,
+  fetchPickups,
+  fetchOrders,
+  fetchCenters,
+};
+
+export default api;

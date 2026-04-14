@@ -51,7 +51,7 @@ export default function ProviderPage() {
 
   return (
     <div>
-      <h2>Provider Management</h2>
+      <h2>Center Management</h2>
       {error && <p className="error-message">{error}</p>}
       {loading ? (
         <p>Loading providers…</p>

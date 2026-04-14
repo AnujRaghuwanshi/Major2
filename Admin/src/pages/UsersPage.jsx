@@ -15,6 +15,7 @@ export default function UsersPage() {
     async function loadUsers() {
       try {
         const payload = await api.fetchUsers(session.token);
+
         if (active) {
           // Backend returns { success: true, users: [...] }
           if (payload && payload.users && Array.isArray(payload.users)) {

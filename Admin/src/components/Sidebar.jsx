@@ -4,7 +4,7 @@ import { useAuth } from '../AuthContext.jsx';
 const navItems = [
   { id: 'products', label: 'Products', path: 'products' },
   { id: 'users', label: 'Users', path: 'users' },
-  { id: 'providers', label: 'Providers', path: 'providers' },
+  { id: 'providers', label: 'Centers', path: 'providers' },
   { id: 'pickups', label: 'Pickups', path: 'pickups' },
   { id: 'orders', label: 'Orders', path: 'orders' },
 ];
